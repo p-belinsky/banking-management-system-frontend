@@ -1,0 +1,25 @@
+<p>
+    <mat-toolbar>
+        <button style="color: grey;" mat-button (click)="selectButton(0)">By Account Number</button>
+        <button style="color: grey;" mat-button (click)="selectButton(1)">Approve Beneficiary</button>
+        <button style="color: grey;" mat-button (click)="selectButton(2)">Approve Account</button>
+        <button style="color: grey;" mat-button (click)="selectButton(3)">Enable/Block Customer</button>
+    </mat-toolbar>
+</p>
+
+
+<div class = "app-search-transactions-by-account-number" *ngIf = "selection==0">
+    <app-search-transactions-by-account-number></app-search-transactions-by-account-number>
+</div>
+
+<div class = "app-approve-beneficiar" *ngIf = "selection==1">
+    <app-approve-beneficiary></app-approve-beneficiary>
+</div>
+
+<div class = "app-approve-account" *ngIf = "selection==2">
+    <app-approve-account></app-approve-account>
+</div>
+
+<div class = "app-enable-block-customer" *ngIf = "selection==3">
+    <app-enable-block-customer></app-enable-block-customer>
+</div>

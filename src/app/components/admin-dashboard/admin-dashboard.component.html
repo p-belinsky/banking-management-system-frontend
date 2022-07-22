@@ -1,0 +1,15 @@
+<p>
+    <mat-toolbar>
+        <button style="color: grey;" mat-button (click)="selectButton(0)">Create Staff</button>
+        <button style="color: grey;" mat-button (click)="selectButton(1)">View Staff</button>
+    </mat-toolbar>
+</p>
+
+
+<div class = "app-create-staff" *ngIf = "selection==0">
+    <app-create-staff></app-create-staff>
+</div>
+
+<div class = "app-view-staff" *ngIf = "selection==1">
+    <app-view-staff></app-view-staff>
+</div>

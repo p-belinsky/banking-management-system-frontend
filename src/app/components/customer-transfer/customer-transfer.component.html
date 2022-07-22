@@ -1,0 +1,113 @@
+<mat-toolbar>
+  <div><button style="color: grey;" mat-button routerLink="/create-account">Create Account</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/add-beneficiary">Add Beneficiary</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/view-beneficiary">View Beneficiary</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/customer-transfer">Transfer</button></div>
+  <div><button style="color: grey;"mat-button>View Account Statement</button></div>
+  <div><button style="color: grey;"mat-button>Update Profile</button></div>
+</mat-toolbar>
+
+<h1 style="text-align: left; margin: 20px 30px">Select Source Account</h1>
+
+<table mat-table [dataSource]="items" class="mat-elevation-z8">
+  <ng-container matColumnDef="accountNo">
+    <th mat-header-cell *matHeaderCellDef>AccountNo</th>
+    <td mat-cell *matCellDef="let items">{{ items.accountNo }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="accountBalance">
+    <th mat-header-cell *matHeaderCellDef>Account Balance</th>
+    <td mat-cell *matCellDef="let items">${{ items.accountBalance }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="accountType">
+    <th mat-header-cell *matHeaderCellDef>Account Type</th>
+    <td mat-cell *matCellDef="let items">{{ items.accountType }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let items">
+      <button
+        (click)="selectSourceAccount(items.accountNo)"
+        mat-raised-button
+        color="primary"
+      >
+        Select
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<div class="select-account">
+  <h1 style="text-align: left; margin: 20px 20px">Select To Account</h1>
+
+  <form
+    [formGroup]="transferForm"
+    (submit)="transfer(transferForm.value, selectedAccount)"
+  >
+    <mat-form-field appearance="fill" style="margin-left: 20px">
+      <input
+        matInput
+        formControlName="toAccountNo"
+        type="number"
+        placeholder=" To Account Number"
+        name="toAccountNo"
+        required
+        ngModel
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="margin-left: 20px">
+      <mat-label>Enter Amount</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="amount"
+        type="number"
+        placeholder="Amount"
+        name="amount"
+        required
+        ngModel
+      />
+    </mat-form-field>
+
+    <div>
+      <mat-form-field
+        class="example-full-width"
+        appearance="fill"
+        style="margin-left: 20px"
+      >
+        <mat-label>Reason</mat-label>
+        <input
+          matInput
+          formControlName="reason"
+          type="text"
+          placeholder="reason"
+          name="reason"
+          required
+          ngModel
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="margin-left: 10px">
+        <mat-label>Transaction Type</mat-label>
+        <mat-select
+          formControlName="transactionType"
+          name="transactionType"
+          required
+          ngModel
+        >
+          <mat-option value="Credit">Credit</mat-option>
+          <mat-option value="Debit">Debit</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button style="margin-left: 20px" mat-raised-button color="primary">
+      Transfer
+    </button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="customerTable">
+    <h1>Enable/Disable Customer</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Customer Id</th>
+                <th>Enable/Disable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of customers">
+                <td>{{item.username}}</td>
+                <td>{{item.userId}}</td>
+                <td>
+                    <button mat-raised-button color="primary" (click) = "flipStatus(item)" *ngIf="item.status=='DISABLE'">enable</button>
+                    <button mat-raised-button color="primary" (click) = "flipStatus(item)" *ngIf="item.status=='ENABLE'">disable</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+.BeneficiaryTable{
+    margin-left: 15px;
+    display: table;
+    text-align: center;
+    border: solid;
+    border-width: 1px;
+    
+}
+
+table{
+    table-layout: auto;
+    width:900px;
+}

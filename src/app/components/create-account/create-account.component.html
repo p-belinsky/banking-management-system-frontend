@@ -1,0 +1,40 @@
+
+<mat-toolbar>
+  <div><button style="color: grey;" mat-button routerLink="/create-account">Create Account</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/add-beneficiary">Add Beneficiary</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/view-beneficiary">View Beneficiary</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/customer-transfer">Transfer</button></div>
+  <div><button style="color: grey;"mat-button>View Account Statement</button></div>
+  <div><button style="color: grey;"mat-button>Update Profile</button></div>
+</mat-toolbar>
+
+
+<mat-card>
+    <mat-card-content>
+        <h2>Create Account</h2>
+        <form [formGroup] = "createAccountForm" (submit)="createAccount(createAccountForm.value)">
+            <mat-form-field>
+                <input matInput formControlName="customerName" placeholder="Customer Name" name="customerName" required ngModel>
+                <span style="color: red; font-size: x-small;" class="text-danger" *ngIf="createAccountForm.controls['customerName'].dirty && createAccountForm.hasError('required','customerName')">Customer Name is required</span>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="accountNo" type="number" placeholder="Account Number"  name="accountNo" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="createAccountForm.controls['accountNo'].dirty && createAccountForm.hasError('required','accountNo')">Account Number is required</span>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="accountBalance" type="number" placeholder="Initial Deposit"  name="accountBalance" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="createAccountForm.controls['accountBalance'].dirty && createAccountForm.hasError('required','accountBalance')">Account Balance is required</span>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Account Type</mat-label>
+                <mat-select formControlName="accountType" name="accountType" required ngModel >
+                  <mat-option value="CA">Checking Account</mat-option>
+                  <mat-option value="SA">Savings Account</mat-option>
+                </mat-select>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="createAccountForm.controls['accountType'].dirty && createAccountForm.hasError('required','accountType')">Account Balance is required</span>
+              </mat-form-field>
+              <button mat-raised-button color="primary" [disabled]="!createAccountForm.valid">Submit</button>
+        </form>
+
+    </mat-card-content>
+</mat-card>

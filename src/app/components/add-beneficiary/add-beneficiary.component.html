@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <div><button style="color: grey;" mat-button routerLink="/create-account">Create Account</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/add-beneficiary">Add Beneficiary</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/view-beneficiary">View Beneficiary</button></div>
+  <div><button style="color: grey;" mat-button routerLink="/customer-transfer">Transfer</button></div>
+  <div><button style="color: grey;"mat-button>View Account Statement</button></div>
+  <div><button style="color: grey;"mat-button>Update Profile</button></div>
+</mat-toolbar>
+
+<mat-card>
+    <mat-card-content>
+        <h2>Add Beneficiary</h2>
+        <form [formGroup] = "addBeneficiaryForm" (submit)="addBeneficiaryToAccount(addBeneficiaryForm.value)">
+            <mat-form-field>
+                <input matInput formControlName="beneficiaryNo" type="number" placeholder="Account Number" name="beneficiaryNumber" required ngModel>
+                <span style="color: red; font-size: x-small;" class="text-danger" *ngIf="addBeneficiaryForm.controls['beneficiaryNo'].dirty && addBeneficiaryForm.hasError('required','beneficiaryNo')">Account Number is required</span>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="beneficiaryName"  placeholder="Beneficiary Name"  name="beneficiaryName" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="addBeneficiaryForm.controls['beneficiaryName'].dirty && addBeneficiaryForm.hasError('required','beneficiaryName')">Beneficiary Name is required</span>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status" name="status" required ngModel >
+                  <mat-option value="ENABLE">Enable</mat-option>
+                  <mat-option value="DISABLE">Disable</mat-option>
+                </mat-select>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="addBeneficiaryForm.controls['status'].dirty && addBeneficiaryForm.hasError('required','status')">Status is required</span>
+              </mat-form-field>
+ 
+              <button mat-raised-button color="primary" [disabled]="!addBeneficiaryForm.valid">Submit</button>
+        </form>
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,25 @@
+.accountNoInputForm{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.searchedAccountDetails{
+    margin-left: 15px;
+    display: inline-flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 300px;
+}
+
+.transactionlogs{
+    margin-left: 15px;
+    display: table;
+    text-align: center;
+    border: solid;
+    border-width: 1px;
+    
+}
+
+table{
+    table-layout: auto;
+    width:900px;
+}

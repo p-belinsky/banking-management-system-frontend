@@ -1,0 +1,23 @@
+<div class="BeneficiaryTable">
+    <h1>Newly Added Beneficiary</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>From Customer Name-CustomerId</th>
+                <th>Beneficiary Name-AcNo</th>
+                <th>Amount</th>
+                <th>Cr/Db</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of beneficiaries">
+                <td>PlaceholderText</td>
+                <td>{{ item.beneficiaryName }}</td>
+                <td>{{ item.dateCreated }}</td>
+                <td>
+                    <button mat-raised-button color="primary" (click) = "approveBeneficiary(item)">Approve</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

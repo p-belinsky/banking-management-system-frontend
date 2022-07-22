@@ -1,0 +1,29 @@
+<h2>Provide your details to register with us</h2>
+
+<form #registerForm = "ngForm" (submit)="addStaff(registerForm.value)">
+  <mat-form-field appearance="fill">
+      <mat-label>Enter Staff Name</mat-label>
+      <input matInput name = "fullname" ngModel>
+    </mat-form-field>
+    <br><br>
+
+  <mat-form-field appearance="fill">
+      <mat-label>Enter Staff UserName</mat-label>
+      <input matInput name = "username"ngModel>
+    </mat-form-field>
+    <br><br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter Secure Password</mat-label>
+    <input matInput name = "password" ngModel>
+  </mat-form-field>
+  <br><br>
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Re Enter Password</mat-label>
+    <input matInput name = "password" ngModel>
+  </mat-form-field>
+  <br><br> -->
+
+  <button mat-raised-button color = "primary">Submit</button>
+</form>"

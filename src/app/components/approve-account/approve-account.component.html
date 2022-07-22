@@ -1,0 +1,23 @@
+<div class="AccountsTable">
+    <h1>Newly Added Accounts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name - accountNo</th>
+                <th>Account Balance</th>
+                <th>Date created</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of accounts">
+                <td>{{item.customerName}} - {{item.accountNo}}</td>
+                <td>{{ item.accountBalance }}</td>
+                <td>{{ item.dateCreated }}</td>
+                <td>
+                    <button mat-raised-button color="primary" (click) = "approveAccount(item)">Approve</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
