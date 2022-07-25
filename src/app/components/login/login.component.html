@@ -1,4 +1,5 @@
-<mat-card>
+<!-- Phil's login -->
+<!-- <mat-card>
     <mat-card-content>
         <h2>Log In</h2>
         <form [formGroup] = "loginForm" (submit)="login(loginForm.value)">
@@ -14,4 +15,52 @@
         </form>
 
     </mat-card-content>
+</mat-card> -->
+<!-- James' login -->
+<mat-card>
+  <mat-card-content>
+    <h2>Log In</h2>
+
+    <form [formGroup]="loginForm" (submit)="login(loginForm.value)">
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>User Role</mat-label>
+        <mat-select formControlName="role" name="role" required ngModel>
+          <mat-option value="customer">Customer</mat-option>
+          <mat-option value="staff">Staff</mat-option>
+          <mat-option value="admin">Admin</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <input matInput formControlName="username" placeholder="Username" name="username" required ngModel>
+        <span style="color: red; font-size: x-small;" class="text-danger"
+          *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">Username is
+          required</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="password" type="password" placeholder="Password" name="password" required
+          ngModel>
+        <span style="color: red; font-size: x-small;" class="text-danger"
+          *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">Password is
+          required</span>
+
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button><br><br>
+    </form>
+
+  </mat-card-content>
+  
+  <form [formGroup]="forgotForm" (submit)  = "forgotPassword(forgotForm.value)">
+    <mat-form-field>
+      <input matInput formControlName="username" placeholder="Username" name="username" required ngModel>
+      <span style="color: red; font-size: x-small;" class="text-danger"
+        *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">Username is
+        required</span>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!forgotForm.valid">Forgot Password</button><br><br>
+  </form>
+  
+  <h3>If you don't have an account, click Below</h3>
+  <button mat-raised-button="primary" routerLink="/registration">Register Here</button>
 </mat-card>

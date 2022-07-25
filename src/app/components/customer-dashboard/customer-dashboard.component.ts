@@ -8,15 +8,9 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class CustomerDashboardComponent implements OnInit {
 
-  accounts:any
-
-  constructor(private customerService:CustomerService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.customerService.getAccountsByCustomerId(localStorage.getItem("userId")).subscribe(res => {
-      console.log(res)
-      this.accounts = res
-    })
 
   }
 

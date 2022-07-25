@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-content>
+        <h2>Registration Form</h2>
+        <form [formGroup] = "registrationForm" (submit)="register(registrationForm.value)">
+            <mat-form-field appearance="fill">
+                <mat-label>User Role</mat-label>
+                <mat-select formControlName="role" name="role" required ngModel >
+                  <mat-option value="CUSTOMER">Customer</mat-option>
+                  <mat-option value="STAFF">Staff</mat-option>
+                  <mat-option value="ADMIN">Admin</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="username" placeholder="Username" name="username" required ngModel>
+                <span style="color: red; font-size: x-small;" class="text-danger" *ngIf="registrationForm.controls['username'].dirty && registrationForm.hasError('required','username')">Username is required</span>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="fullname" placeholder="FullName" name="fullname" required ngModel>
+                <span style="color: red; font-size: x-small;" class="text-danger" *ngIf="registrationForm.controls['fullname'].dirty && registrationForm.hasError('required','fullname')">Full Name is required</span>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="password" type="password" placeholder="Password"  name="password" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="registrationForm.controls['password'].dirty && registrationForm.hasError('required','password')">Password is required</span>
+            </mat-form-field>
+            <!-- <mat-form-field>
+                <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm Password"  name="confirmPassword" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="registrationForm.controls['confirmPassword'].dirty && registrationForm.hasError('required','confirmPassword')">Confirm Password is required</span>
+            </mat-form-field> -->
+            <mat-form-field>
+                <input matInput formControlName="mobile" type="number" placeholder="Mobile" name="mobile" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="registrationForm.controls['mobile'].dirty && registrationForm.hasError('required','mobile')">Mobile</span>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="!registrationForm.valid">Register</button>
+        </form>
+
+    </mat-card-content>
+</mat-card>

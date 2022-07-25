@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup] = "questionForm" (submit)="submitQA(questionForm.value)">
+            <mat-form-field>
+                <input matInput formControlName="question" type="text" placeholder="question" name="question" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="questionForm.controls['question'].dirty && questionForm.hasError('required','question')">question1</span>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput formControlName="answer" placeholder="answer" name="answer">
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="questionForm.controls['answer'].dirty && questionForm.hasError('required','answer')">question1</span>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" [disabled]="!questionForm.valid">Register</button>
+        </form>
+    </mat-card-content>
+</mat-card>

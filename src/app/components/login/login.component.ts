@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+    // ,role: new FormControl('', Validators.required)
   });
 
   login(form: any) {
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
   loadUser(form: any) {
-    this.userService.loadUserByUsername(form).subscribe(
+    this.userService.loadUserByUsernamePassword(form).subscribe(
       (res) => {
         if (res) {
           alert('User Loaded');
@@ -54,6 +55,7 @@ export class LoginComponent implements OnInit {
           let userId = this.user.userId
           localStorage.setItem("userId", userId)
           let userRole = this.user.role
+          localStorage.setItem("role", userRole);
           if(userRole == "CUSTOMER"){
             this.router.navigate(['/customer'])
           }
@@ -69,5 +71,12 @@ export class LoginComponent implements OnInit {
         alert('User Not Loaded');
       }
     );
+  }
+  
+  forgotForm = new FormGroup({
+    username: new FormControl('', Validators.required)
+  });
+  forgotPassword(form:any){
+    this.router.navigate([('/forgotPassword/'+form.username)]);
   }
 }

@@ -7,13 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StaffDashboardComponent implements OnInit {
 
-  selection:any=0;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  selectButton(selectionid:any){
-    this.selection = selectionid;
-  }
 }

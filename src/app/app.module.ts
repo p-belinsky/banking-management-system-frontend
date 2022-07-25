@@ -31,7 +31,14 @@ import { SearchTransactionsByAccountNumberComponent } from './components/search-
 import { ViewStaffComponent } from './components/view-staff/view-staff.component';
 import { EnableBlockCustomerComponent } from './components/enable-block-customer/enable-block-customer.component';
 import { ApproveBeneficiaryComponent } from './components/approve-beneficiary/approve-beneficiary.component';
-
+import { MatOptionModule } from '@angular/material/core';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ViewAccountsComponent } from './components/view-accounts/view-accounts.component';
+import { SecurityQuestionsComponent } from './components/security-questions/security-questions.component';
+import { AccountDetailsComponent } from './components/account-details/account-details.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +57,14 @@ import { ApproveBeneficiaryComponent } from './components/approve-beneficiary/ap
     SearchTransactionsByAccountNumberComponent,
     ViewStaffComponent,
     EnableBlockCustomerComponent,
-    ApproveBeneficiaryComponent
+    ApproveBeneficiaryComponent,
+    RegistrationComponent,
+    ForgotPasswordComponent,
+    UpdateUserComponent,
+    ResetPasswordComponent,
+    ViewAccountsComponent,
+    SecurityQuestionsComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +82,8 @@ import { ApproveBeneficiaryComponent } from './components/approve-beneficiary/ap
     MatRadioModule,
     MatSelectModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

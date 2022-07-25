@@ -1,0 +1,19 @@
+
+
+.example-card {
+    max-width: 400px;
+    margin-left: 50px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+  
+  .card-container {
+    margin: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row; 
+    padding: 10px;
+  }
+  

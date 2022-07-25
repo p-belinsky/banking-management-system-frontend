@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CustomerService {
+  
 
   customer:any
 
@@ -19,7 +20,9 @@ export class CustomerService {
     return this.http.get('http://localhost:8080/api/customer/load/'+username);
   }
 
-
+  getCustomerById(userId:any){
+    return this.http.get('http://localhost:8080/api/customer/'+userId);
+  }
 
   getAccountsByCustomerId(customerId:any){
     return this.http.get('http://localhost:8080/api/customer/'+ customerId + '/account')
@@ -49,5 +52,7 @@ export class CustomerService {
     localStorage.setItem('token', token);
   }
    
-   
+  updateUser(userId:any, form: any) {
+    return this.http.put(`http://localhost:8080/api/customer/${userId}`, form)
+  }
 }

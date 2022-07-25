@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-content>
+        <h2>User Account Info</h2>
+        <form [formGroup] = "updateUserForm" (submit)="update(updateUserForm.value)">
+            <mat-form-field>
+                <mat-label>username</mat-label>
+                <input matInput formControlName="username" placeholder={{user.username}} name="username" required ngModel>
+                <span style="color: red; font-size: x-small;" class="text-danger" *ngIf="updateUserForm.controls['username'].dirty && updateUserForm.hasError('required','username')">Username is required</span>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>fullname</mat-label>
+                <input matInput formControlName="fullname" placeholder={{user.fullname}} name="fullname" required ngModel>
+                <span style="color: red; font-size: x-small;" class="text-danger" *ngIf="updateUserForm.controls['fullname'].dirty && updateUserForm.hasError('required','fullname')">Full Name is required</span>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>password</mat-label>
+                <input matInput formControlName="password" type="password" placeholder=""  name="password" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="updateUserForm.controls['password'].dirty && updateUserForm.hasError('required','password')">Password is required</span>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>confirm password</mat-label>
+                <input matInput formControlName="confirmPassword" type="password" placeholder=""  name="confirmPassword" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="updateUserForm.controls['confirmPassword'].dirty && updateUserForm.hasError('required','confirmPassword')">Confirm Password is required</span>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>mobile</mat-label>
+                <input matInput formControlName="mobile" type="number" placeholder={{user.mobile}} name="mobile" required ngModel>
+                <span style="color: red; font-size: x-small;"  class="text-danger" *ngIf="updateUserForm.controls['mobile'].dirty && updateUserForm.hasError('required','mobile')">Mobile</span>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="!updateUserForm.valid">Update</button>
+        </form>
+
+    </mat-card-content>
+</mat-card>

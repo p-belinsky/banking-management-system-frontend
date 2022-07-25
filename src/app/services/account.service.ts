@@ -15,4 +15,7 @@ export class AccountService {
     return this.http.get(`${this.baseurl}api/staff/account/`+accountNo)
   }
 
+  getAccountByCustomerIdAndAccountId(customerId:any, accountId:any):any{
+    return this.http.get(`${this.baseurl}api/customer/`+customerId+`/account/`+accountId);
+  }
 }

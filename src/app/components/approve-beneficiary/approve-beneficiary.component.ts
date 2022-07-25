@@ -9,17 +9,22 @@ import { StaffService } from '../../services/staff.service';
 export class ApproveBeneficiaryComponent implements OnInit {
 
   beneficiaries:any;
+  accounts:any;
+
   constructor(private staffService:StaffService) { }
 
   ngOnInit(): void {
-    this.staffService.allBeneficiaryNeedingApproval().subscribe((res:any)=>{
-      this.beneficiaries = res;
-    });
+    // this.staffService.allBeneficiaryNeedingApproval().subscribe((res:any)=>{
+    //   this.beneficiaries = res;
+    // });
+    this.getAllBeneficiaryNeedingApproval();
   }
 
   getAllBeneficiaryNeedingApproval(){
     this.staffService.allBeneficiaryNeedingApproval().subscribe((res:any)=>{
-      this.beneficiaries = res;
+      this.beneficiaries = res; 
+      this.accounts = this.beneficiaries.accounts;
+      console.log(res);
     })
   }
 
@@ -28,4 +33,5 @@ export class ApproveBeneficiaryComponent implements OnInit {
       this.getAllBeneficiaryNeedingApproval();
     });
   }
+
 }

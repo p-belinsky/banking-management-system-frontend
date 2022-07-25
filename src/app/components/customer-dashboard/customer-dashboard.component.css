@@ -1,5 +1,5 @@
 .example-card {
-  max-width: 400px;
+  max-width: fit-content;
   margin-left: 50px;
 }
 

@@ -24,17 +24,21 @@ export class CustomerTransferComponent implements OnInit {
   constructor(private customerService:CustomerService) { }
 
   ngOnInit(): void {
+    this.getAllAccountsByCustomerId();
+  }
+
+  getAllAccountsByCustomerId(){
     this.customerService.getAllAccountsByCustomerId(localStorage.getItem('userId')).subscribe(res => {
       console.log(res)
       this.items = res
-
+  
     },
     err=> {
       alert(err)
     })
-
-
   }
+
+  
 
   selectSourceAccount(accountNo:any){
     this.selectedAccount = accountNo;
@@ -55,6 +59,7 @@ export class CustomerTransferComponent implements OnInit {
         if(res){
           alert("Transfer Successful")
           console.log(res)
+          this.getAllAccountsByCustomerId();
         }
     })
   }
